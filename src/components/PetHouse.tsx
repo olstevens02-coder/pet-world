@@ -65,54 +65,48 @@ export const PetHouse: React.FC<PetHouseProps> = ({
 
   const activePet = adoptedPets.find(p => p.id === (selectedPetId || activePetId)) || adoptedPets[0] || null;
 
-  // Realistic Ken Mojo Dojo Casa House Rooms
+  // Realistic Ken Mojo Dojo Casa House Rooms with High-Definition Photography
   const mojoRooms: {
     id: HouseRoomType;
     name: string;
     icon: string;
     tagline: string;
-    bgStyle: string;
-    ambientDecor: string;
+    imagePath: string;
   }[] = [
     {
       id: 'mojo_living_lounge',
       name: "Ken's Mojo Dojo Great Room",
       icon: '🛋️',
       tagline: 'Cognac leather Chesterfield couches, stone fireplace, and stallion statues.',
-      bgStyle: 'from-stone-900 via-amber-950/40 to-stone-900',
-      ambientDecor: '🐎'
+      imagePath: './rooms/mojo_living_lounge.jpg'
     },
     {
       id: 'deck_infinity_pool',
       name: 'Outdoor Infinity Deck & Pool',
       icon: '🏊',
       tagline: 'Teak wood sun deck, crystal infinity pool, and mountain sunset view.',
-      bgStyle: 'from-amber-900/30 via-sky-900/40 to-stone-900',
-      ambientDecor: '🥩'
+      imagePath: './rooms/deck_infinity_pool.jpg'
     },
     {
       id: 'garage_showroom_lounge',
       name: 'Ferrari Garage & Game Bay',
       icon: '🏎️',
       tagline: 'Glass-walled Ferrari showroom bay, foosball table, and mini-fridge.',
-      bgStyle: 'from-zinc-900 via-slate-900 to-zinc-950',
-      ambientDecor: '🏁'
+      imagePath: './rooms/garage_showroom_lounge.jpg'
     },
     {
       id: 'master_suite_bedroom',
       name: 'Mojo Master Suite',
       icon: '🛏️',
       tagline: 'King leather headboard bed, cowhide throws, and stone wall fireplace.',
-      bgStyle: 'from-amber-950/60 via-stone-900 to-stone-950',
-      ambientDecor: '🎸'
+      imagePath: './rooms/master_suite_bedroom.jpg'
     },
     {
       id: 'gourmet_kitchen_bar',
       name: 'Granite Kitchen & Snack Bar',
       icon: '🍽️',
       tagline: 'Black granite countertops, stainless steel appliances, and chef pet feast island.',
-      bgStyle: 'from-stone-800 via-zinc-900 to-stone-950',
-      ambientDecor: '🥩'
+      imagePath: './rooms/gourmet_kitchen_bar.jpg'
     }
   ];
 
@@ -126,8 +120,8 @@ export const PetHouse: React.FC<PetHouseProps> = ({
       const next: Record<string, PetRoamState> = { ...prev };
       adoptedPets.forEach((p, idx) => {
         if (!next[p.id]) {
-          const initX = 20 + (idx * 16) % 60;
-          const initY = 56 + (idx * 7) % 24;
+          const initX = 22 + (idx * 16) % 55;
+          const initY = 62 + (idx * 6) % 20;
           next[p.id] = {
             id: p.id,
             x: initX,
@@ -186,8 +180,8 @@ export const PetHouse: React.FC<PetHouseProps> = ({
             // Autonomous random wander on hardwood floors
             if (Math.random() < 0.025) {
               hasChanges = true;
-              const wanderX = 15 + Math.random() * 70;
-              const wanderY = 50 + Math.random() * 30;
+              const wanderX = 15 + Math.random() * 68;
+              const wanderY = 58 + Math.random() * 24;
               updated[pet.id] = {
                 ...state,
                 targetX: wanderX,
@@ -226,7 +220,7 @@ export const PetHouse: React.FC<PetHouseProps> = ({
             next[pet.id] = {
               ...next[pet.id],
               targetX: Math.max(12, Math.min(85, clickX + (i - 1) * 6)),
-              targetY: Math.max(48, Math.min(82, clickY)),
+              targetY: Math.max(52, Math.min(84, clickY)),
               isWalking: true,
               facing: clickX < next[pet.id].x ? 'left' : 'right',
               action: 'playing'
@@ -245,7 +239,7 @@ export const PetHouse: React.FC<PetHouseProps> = ({
             [activePet.id]: {
               ...prev[activePet.id],
               targetX: Math.max(12, Math.min(85, clickX)),
-              targetY: Math.max(48, Math.min(82, clickY)),
+              targetY: Math.max(52, Math.min(84, clickY)),
               isWalking: true,
               facing: clickX < prev[activePet.id].x ? 'left' : 'right',
               action: 'walking'
@@ -259,9 +253,9 @@ export const PetHouse: React.FC<PetHouseProps> = ({
   const handleThrowBall = () => {
     soundManager.playPop();
     const ballTargetX = 20 + Math.random() * 60;
-    const ballTargetY = 55 + Math.random() * 20;
+    const ballTargetY = 60 + Math.random() * 20;
 
-    setBouncingBall({ x: 50, y: 30 });
+    setBouncingBall({ x: 50, y: 35 });
     setTimeout(() => setBouncingBall({ x: ballTargetX, y: ballTargetY }), 350);
     setTimeout(() => setBouncingBall(null), 2500);
 
@@ -293,7 +287,7 @@ export const PetHouse: React.FC<PetHouseProps> = ({
   return (
     <div className="w-full max-w-7xl mx-auto space-y-6 select-none animate-fadeIn">
       {/* Ken Mojo Dojo Casa Banner */}
-      <div className="bg-gradient-to-r from-amber-900 via-stone-900 to-amber-950 rounded-3xl p-6 md:p-8 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 border-4 border-amber-600/50">
+      <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-zinc-950 rounded-3xl p-6 md:p-8 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 border-4 border-amber-600/50">
         <div className="space-y-2 text-center md:text-left">
           <div className="inline-flex items-center gap-2 bg-amber-500/20 px-4 py-1.5 rounded-full text-xs font-black border border-amber-500/40 text-amber-300">
             <span>🐎 KEN'S MOJO DOJO CASA HOUSE 🐎</span>
@@ -302,7 +296,7 @@ export const PetHouse: React.FC<PetHouseProps> = ({
             Mojo Dojo Casa House
           </h1>
           <p className="text-amber-100/80 font-bold max-w-xl text-sm md:text-base">
-            Realistic luxury bachelor mansion with deep leather couches, stone fireplaces, and realistic hardwood floors where your 3D pets freely roam!
+            Realistic architectural luxury bachelor mansion with deep leather couches, stone fireplaces, and realistic hardwood floors where your 3D pets freely roam!
           </p>
         </div>
 
@@ -348,23 +342,23 @@ export const PetHouse: React.FC<PetHouseProps> = ({
         ))}
       </div>
 
-      {/* Realistic Architectural Interior Canvas */}
+      {/* Realistic Photographic Interior Room Canvas */}
       <div
         onClick={handleRoomClick}
-        className={`relative w-full h-[580px] rounded-3xl p-8 bg-gradient-to-b ${currentRoomInfo.bgStyle} border-8 border-stone-800 shadow-2xl overflow-hidden cursor-pointer flex flex-col justify-between`}
+        className="relative w-full h-[620px] rounded-3xl border-8 border-stone-800 shadow-2xl overflow-hidden cursor-pointer flex flex-col justify-between"
       >
-        {/* Realistic Architectural Background Elements */}
-        {/* Realistic Hardwood Plank Flooring Layer */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-[48%] bg-gradient-to-t from-amber-950 via-stone-900 to-stone-950 border-t-4 border-amber-700/60 shadow-inner pointer-events-none"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(90deg, rgba(217,119,6,0.08) 0px, rgba(217,119,6,0.08) 60px, transparent 60px, transparent 120px)'
-          }}
+        {/* Photorealistic High-Definition Room Background */}
+        <img
+          src={currentRoomInfo.imagePath}
+          alt={currentRoomInfo.name}
+          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
         />
 
+        {/* Subtle Vignette Gradient for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+
         {/* Ambient Room Header Tag */}
-        <div className="absolute top-4 left-6 z-30 bg-stone-950/80 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-amber-500/40 shadow-xl flex items-center gap-3">
+        <div className="absolute top-4 left-6 z-30 bg-stone-950/85 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-amber-500/40 shadow-xl flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-2xl border border-amber-500/40 text-amber-400">
             {currentRoomInfo.icon}
           </div>
@@ -396,69 +390,12 @@ export const PetHouse: React.FC<PetHouseProps> = ({
           </div>
         )}
 
-        {/* Room Specific Realistic Furnishings */}
-        {currentRoom === 'mojo_living_lounge' && (
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Mountain Sunset Panoramic Window */}
-            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-[70%] h-36 bg-gradient-to-b from-orange-400/30 via-rose-500/20 to-indigo-950/40 rounded-2xl border-4 border-stone-800 shadow-2xl flex items-center justify-center overflow-hidden">
-              <span className="text-7xl opacity-50">🌄</span>
-            </div>
-            {/* Deep Tufted Cognac Leather Sectional & Stallion Statue */}
-            <div className="text-8xl absolute left-[10%] bottom-16 filter drop-shadow-2xl">🛋️</div>
-            <div className="text-7xl absolute right-[12%] bottom-18 filter drop-shadow-2xl">🐎</div>
-            <div className="text-7xl absolute left-[46%] bottom-12 filter drop-shadow-xl">🪵</div>
-            <div className="text-6xl absolute right-[32%] bottom-20">🎸</div>
-          </div>
-        )}
-
-        {currentRoom === 'deck_infinity_pool' && (
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Infinity Pool & Mountain Horizon */}
-            <div className="absolute top-16 inset-x-[15%] h-36 bg-gradient-to-b from-sky-400/40 via-cyan-500/30 to-teal-900/60 rounded-2xl border-4 border-stone-700 shadow-2xl flex items-center justify-center">
-              <span className="text-8xl opacity-70">🏊</span>
-            </div>
-            <div className="text-8xl absolute left-[12%] bottom-14">🥩</div>
-            <div className="text-7xl absolute right-[15%] bottom-16">🌴</div>
-            <div className="text-6xl absolute left-[45%] bottom-16">🍹</div>
-          </div>
-        )}
-
-        {currentRoom === 'garage_showroom_lounge' && (
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Glass Bay Showroom with Ferrari & Foosball */}
-            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-stone-950/80 px-8 py-3 rounded-2xl border-2 border-orange-500/40 text-center shadow-2xl">
-              <span className="text-xs font-black text-orange-400 tracking-widest uppercase">
-                🏎️ MOJO DOJO GARAGE BAY 🏁
-              </span>
-            </div>
-            <div className="text-9xl absolute left-[15%] bottom-12 filter drop-shadow-2xl">🏎️</div>
-            <div className="text-7xl absolute right-[18%] bottom-16">🧃</div>
-            <div className="text-6xl absolute right-[35%] bottom-20">🏆</div>
-          </div>
-        )}
-
-        {currentRoom === 'master_suite_bedroom' && (
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="text-9xl absolute left-[15%] bottom-12 filter drop-shadow-2xl">🛏️</div>
-            <div className="text-7xl absolute right-[18%] bottom-18">🔥</div>
-            <div className="text-6xl absolute left-[52%] top-20">🐎</div>
-          </div>
-        )}
-
-        {currentRoom === 'gourmet_kitchen_bar' && (
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="text-9xl absolute left-[15%] bottom-12 filter drop-shadow-2xl">🍽️</div>
-            <div className="text-8xl absolute right-[18%] bottom-16">🥩</div>
-            <div className="text-6xl absolute left-[50%] bottom-18">🥘</div>
-          </div>
-        )}
-
         {/* ALL ADOPTED PETS FREELY ROAMING ON REALISTIC FLOORS */}
         <div className="absolute inset-0 pointer-events-none">
           {adoptedPets.map(pet => {
             const state = petStates[pet.id] || {
               x: 50,
-              y: 65,
+              y: 70,
               isWalking: false,
               facing: 'right',
               action: 'idle'
@@ -500,7 +437,7 @@ export const PetHouse: React.FC<PetHouseProps> = ({
                 <div className={`p-1.5 rounded-3xl ${isSelected ? 'bg-amber-500/20 ring-2 ring-amber-400' : ''}`}>
                   <PetAvatar
                     pet={pet}
-                    size="lg"
+                    size="xl"
                     isWalking={state.isWalking}
                     facing={state.facing}
                     expression={state.action === 'playing' ? 'excited' : isSelected ? 'happy' : 'normal'}
@@ -517,7 +454,7 @@ export const PetHouse: React.FC<PetHouseProps> = ({
         </div>
 
         {/* Bottom Interactive Toolbar (Toys, Laser, Calling) */}
-        <div className="relative z-30 flex flex-wrap items-center justify-between gap-3 bg-stone-950/85 backdrop-blur-md p-3 rounded-2xl border border-amber-500/30 shadow-2xl text-white">
+        <div className="relative z-30 flex flex-wrap items-center justify-between gap-3 bg-stone-950/85 backdrop-blur-md p-3 rounded-2xl border border-amber-500/30 shadow-2xl text-white m-4">
           <div className="flex items-center gap-2">
             <button
               onClick={(e) => {
