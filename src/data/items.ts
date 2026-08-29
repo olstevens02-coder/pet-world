@@ -113,6 +113,15 @@ export const SHOP_ITEMS: Item[] = [
     suitableFor: ['guinea_pig']
   },
   {
+    id: 'food_barbie_cupcake',
+    name: 'Barbie Pink Strawberry Cupcake',
+    category: 'food',
+    price: 24,
+    icon: '🧁',
+    description: 'Sparkling pink frosted treat with rainbow sprinkles that every pet adores!',
+    effect: { hunger: 45, happiness: 40 }
+  },
+  {
     id: 'food_universal_feast',
     name: 'Grand Rainbow Pet Buffet',
     category: 'food',
@@ -125,11 +134,11 @@ export const SHOP_ITEMS: Item[] = [
   // GROOMING & SPA SUPPLIES
   {
     id: 'groom_bubble_soap',
-    name: 'Lavender Sparkle Soap',
+    name: 'Barbie Bubble Sparkle Soap',
     category: 'grooming',
     price: 20,
     icon: '🧼',
-    description: 'Creates warm bubbly suds that wash away dirt and give a shiny coat.',
+    description: 'Creates warm pink bubbly suds that wash away dirt and give a glossy coat.',
     effect: { cleanliness: 45, happiness: 15 }
   },
   {
@@ -167,7 +176,7 @@ export const SHOP_ITEMS: Item[] = [
     category: 'toy',
     price: 25,
     icon: '🔴',
-    description: 'Shines a dancing red dot that cats and ferrets chase relentlessly!',
+    description: 'Shines a dancing red dot that pets chase across the Barbie Dreamhouse!',
     effect: { happiness: 40, energy: -15 }
   },
   {
@@ -176,7 +185,7 @@ export const SHOP_ITEMS: Item[] = [
     category: 'toy',
     price: 20,
     icon: '🎾',
-    description: 'Throw it across the room or backyard for an epic game of fetch!',
+    description: 'Throw it across the room for an epic game of fetch!',
     effect: { happiness: 35, energy: -10 }
   },
   {
@@ -189,119 +198,119 @@ export const SHOP_ITEMS: Item[] = [
     effect: { happiness: 40 }
   },
 
-  // FURNITURE FOR PET HOUSE
+  // BARBIE DREAMHOUSE FURNITURE
   {
-    id: 'furn_royal_sofa',
-    name: 'Velvet Royal Pet Couch',
+    id: 'furn_barbie_heart_sofa',
+    name: 'Plush Barbie Pink Heart Sofa',
     category: 'furniture',
-    price: 80,
+    price: 85,
     icon: '🛋️',
-    description: 'Luxurious cushioned couch where all pets can lounge together in style.',
-    furnitureRoom: 'living_room',
+    description: 'Signature hot pink velvet sofa where all your pets can cuddle together.',
+    furnitureRoom: 'glam_living_room',
     furniturePlacement: { x: 30, y: 55, width: 40, height: 25 }
   },
   {
-    id: 'furn_pet_tree',
-    name: 'Giant Castle Scratching Tree',
-    category: 'furniture',
-    price: 95,
-    icon: '🏰',
-    description: 'Multi-level tower with hammocks, scratching sisal, and parrot perches.',
-    furnitureRoom: 'living_room',
-    furniturePlacement: { x: 80, y: 40, width: 25, height: 45 }
-  },
-  {
-    id: 'furn_aquarium_palace',
-    name: 'Glowing Crystal Water Palace',
-    category: 'furniture',
-    price: 120,
-    icon: '🫧',
-    description: 'A dreamy lighted aquatic haven where your axolotl swims blissfully.',
-    furnitureRoom: 'living_room',
-    furniturePlacement: { x: 15, y: 35, width: 30, height: 35 }
-  },
-  {
-    id: 'furn_agility_tunnel',
-    name: 'Rainbow Backyard Agility Tunnel',
-    category: 'furniture',
-    price: 75,
-    icon: '🎪',
-    description: 'Exciting outdoor obstacle course for ferrets, puppies, and guinea pigs!',
-    furnitureRoom: 'backyard',
-    furniturePlacement: { x: 50, y: 50, width: 35, height: 25 }
-  },
-  {
-    id: 'furn_splash_pool',
-    name: 'Backyard Pet Splash Pool',
+    id: 'furn_barbie_chandelier',
+    name: 'Golden Crystal Palace Chandelier',
     category: 'furniture',
     price: 110,
-    icon: '🏊',
-    description: 'Heated wading pool with floating duckies and mini water slides.',
-    furnitureRoom: 'backyard',
-    furniturePlacement: { x: 20, y: 65, width: 35, height: 30 }
+    icon: '💎',
+    description: 'Dazzling chandelier that casts sparkling light over the living room.',
+    furnitureRoom: 'glam_living_room',
+    furniturePlacement: { x: 50, y: 15, width: 25, height: 25 }
   },
   {
-    id: 'furn_jacuzzi_bath',
-    name: 'Gold Spa Bubble Jacuzzi',
+    id: 'furn_spiral_slide_pool',
+    name: 'Pink Spiral Pool Water Slide',
+    category: 'furniture',
+    price: 150,
+    icon: '🎢',
+    description: 'Giant spiral slide descending right into the turquoise swimming pool!',
+    furnitureRoom: 'pool_patio_slide',
+    furniturePlacement: { x: 20, y: 40, width: 35, height: 50 }
+  },
+  {
+    id: 'furn_flamingo_float',
+    name: 'Giant Pink Flamingo Pool Float',
+    category: 'furniture',
+    price: 90,
+    icon: '🦩',
+    description: 'Inflatable luxury flamingo lounger for sunbathing pets.',
+    furnitureRoom: 'pool_patio_slide',
+    furniturePlacement: { x: 65, y: 65, width: 30, height: 30 }
+  },
+  {
+    id: 'furn_hollywood_vanity',
+    name: 'Hollywood Lighted Glam Vanity',
     category: 'furniture',
     price: 130,
+    icon: '🪞',
+    description: 'Lighted vanity mirror with beauty brushes and pet perfume mist.',
+    furnitureRoom: 'glam_salon_vanity',
+    furniturePlacement: { x: 50, y: 45, width: 40, height: 35 }
+  },
+  {
+    id: 'furn_gold_jacuzzi',
+    name: 'Golden Hydro Bubble Jacuzzi',
+    category: 'furniture',
+    price: 140,
     icon: '🛁',
-    description: 'Warm hydro-massage spa bath with rainbow LED bubbles.',
-    furnitureRoom: 'spa',
-    furniturePlacement: { x: 50, y: 55, width: 40, height: 30 }
+    description: 'Heated bubble massage tub with fragrant rose petals.',
+    furnitureRoom: 'glam_salon_vanity',
+    furniturePlacement: { x: 20, y: 60, width: 35, height: 30 }
   },
   {
     id: 'furn_canopy_bed',
-    name: 'Cloud Nine Snuggle Canopy Bed',
+    name: 'Hot Pink Silk Canopy Bed',
     category: 'furniture',
-    price: 90,
+    price: 95,
     icon: '🛏️',
     description: 'The softest memory foam bed in the universe with warm fleece blankets.',
-    furnitureRoom: 'bedroom',
-    furniturePlacement: { x: 50, y: 55, width: 45, height: 35 }
+    furnitureRoom: 'dream_bedroom',
+    furniturePlacement: { x: 45, y: 55, width: 45, height: 35 }
   },
   {
-    id: 'furn_gourmet_kitchen_bar',
-    name: 'Chef Pet Buffet Island',
+    id: 'furn_disco_deck',
+    name: 'Rooftop DJ Dance Stage & Disco Ball',
     category: 'furniture',
-    price: 100,
-    icon: '🍽️',
-    description: 'Automatic treat dispenser and fresh water fountain station.',
-    furnitureRoom: 'kitchen',
-    furniturePlacement: { x: 50, y: 50, width: 40, height: 30 }
+    price: 125,
+    icon: '🪩',
+    description: 'Spinning disco lights and DJ booth for pet dance parties under the stars!',
+    furnitureRoom: 'rooftop_party_deck',
+    furniturePlacement: { x: 50, y: 40, width: 40, height: 30 }
   }
 ];
 
 export const PET_ACCESSORIES: PetAccessory[] = [
-  // HATS
+  // HATS & TIARAS
+  { id: 'hat_crown', name: 'Barbie Sparkle Tiara Crown', type: 'hat', icon: '👑', color: '#ec4899', price: 60 },
+  { id: 'hat_flower', name: 'Pink Rose Flower Crown', type: 'hat', icon: '🌸', color: '#f43f5e', price: 45 },
   { id: 'hat_party', name: 'Party Sparkle Hat', type: 'hat', icon: '🥳', color: '#ec4899', price: 40 },
-  { id: 'hat_crown', name: 'Golden Royal Crown', type: 'hat', icon: '👑', color: '#eab308', price: 100 },
   { id: 'hat_tophat', name: 'Fancy Gentleman Top Hat', type: 'hat', icon: '🎩', color: '#1e293b', price: 60 },
   { id: 'hat_chef', name: 'Master Chef Toque', type: 'hat', icon: '👨‍🍳', color: '#ffffff', price: 50 },
   { id: 'hat_goggles', name: 'Ferrari Pilot Aviator Goggles', type: 'hat', icon: '🥽', color: '#ff5500', price: 80 },
-  { id: 'hat_flower', name: 'Rainbow Flower Crown', type: 'hat', icon: '🌸', color: '#f43f5e', price: 45 },
   { id: 'hat_detective', name: 'Sherlock Detective Cap', type: 'hat', icon: '🕵️', color: '#78350f', price: 55 },
 
   // GLASSES
+  { id: 'glass_heart', name: 'Barbie Pink Heart Glasses', type: 'glasses', icon: '💖', color: '#ec4899', price: 45 },
   { id: 'glass_cool', name: 'VIP Aviator Shades', type: 'glasses', icon: '🕶️', color: '#0f172a', price: 50 },
-  { id: 'glass_heart', name: 'Ruby Heart Glasses', type: 'glasses', icon: '💖', color: '#f43f5e', price: 45 },
   { id: 'glass_star', name: 'Star-Eye Glam Glasses', type: 'glasses', icon: '⭐', color: '#eab308', price: 55 },
 
   // NECK & OUTFITS
-  { id: 'neck_bowtie', name: 'Scarlet Satin Bowtie', type: 'neck', icon: '🎀', color: '#ef4444', price: 35 },
+  { id: 'neck_bowtie', name: 'Barbie Magenta Satin Bowtie', type: 'neck', icon: '🎀', color: '#ec4899', price: 35 },
   { id: 'neck_bandana', name: 'Ferrari Racing Bandana', type: 'neck', icon: '🧣', color: '#ff5500', price: 40 },
   { id: 'neck_medal', name: 'Gold Champion Medal', type: 'neck', icon: '🥇', color: '#fbbf24', price: 90 },
-  { id: 'outfit_cape', name: 'Super Pet Flying Cape', type: 'outfit', icon: '🦸', color: '#3b82f6', price: 85 }
+  { id: 'outfit_cape', name: 'Super Pet Flying Cape', type: 'outfit', icon: '🦸', color: '#ec4899', price: 85 }
 ];
 
 export const FERRARI_UPGRADES = {
   paints: [
     { id: '#ff5500', name: 'Sunset Racing Orange', price: 0, tag: 'Signature' },
+    { id: '#ff2a85', name: 'Barbie Glam Hot Pink', price: 60, tag: 'Dreamhouse' },
     { id: '#ff2200', name: 'Ferrari Corsa Red', price: 60, tag: 'Classic' },
     { id: '#ffaa00', name: 'Gold Blaze Metallic', price: 80, tag: 'Prestige' },
     { id: '#00d2ff', name: 'Electric Miami Cyan', price: 90, tag: 'Special' },
-    { id: '#d946ef', name: 'Neon Cyber Magenta', price: 100, tag: 'Hyper' },
-    { id: '#10b981', name: 'Emerald Speed Mint', price: 75, tag: 'Sleek' }
+    { id: '#d946ef', name: 'Neon Cyber Magenta', price: 100, tag: 'Hyper' }
   ],
   spoilers: [
     { id: 'none', name: 'Clean Stock Wing', price: 0 },
@@ -317,6 +326,7 @@ export const FERRARI_UPGRADES = {
   ],
   underglow: [
     { id: 'none', name: 'No Underglow', price: 0 },
+    { id: 'pink', name: 'Barbie Glam Pink Glow', price: 50 },
     { id: 'orange', name: 'Inferno Orange Glow', price: 50 },
     { id: 'cyan', name: 'Electric Cyan Glow', price: 60 },
     { id: 'purple', name: 'Night Cyber Purple', price: 65 },

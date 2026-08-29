@@ -13,14 +13,19 @@ export type AnimalType =
 
 export type LocationType = 'shelter' | 'driving' | 'house' | 'garage' | 'minigames';
 
-export type HouseRoomType = 'living_room' | 'backyard' | 'kitchen' | 'spa' | 'bedroom';
+export type HouseRoomType =
+  | 'glam_living_room'
+  | 'pool_patio_slide'
+  | 'glam_salon_vanity'
+  | 'dream_bedroom'
+  | 'rooftop_party_deck';
 
 export interface PetNeeds {
-  hunger: number;     // 0 to 100 (100 = full)
-  happiness: number;  // 0 to 100 (100 = ecstatic)
-  energy: number;     // 0 to 100 (100 = energetic)
-  cleanliness: number;// 0 to 100 (100 = sparkling clean)
-  health: number;     // 0 to 100 (100 = fully healthy)
+  hunger: number;     // 0 to 100
+  happiness: number;  // 0 to 100
+  energy: number;     // 0 to 100
+  cleanliness: number;// 0 to 100
+  health: number;     // 0 to 100
 }
 
 export interface PetAccessory {
@@ -43,6 +48,8 @@ export interface Pet {
     accent: string;
     eyeColor: string;
     bellyColor?: string;
+    gradientStart?: string;
+    gradientEnd?: string;
   };
   gender: 'boy' | 'girl' | 'friend';
   personality: string;
@@ -68,9 +75,9 @@ export interface FerrariCustomization {
   paintName: string;
   spoiler: 'none' | 'sport' | 'gt_wing' | 'rocket';
   rims: 'standard' | 'golden_star' | 'chrome_spin' | 'neon_glow';
-  underglow: 'none' | 'orange' | 'cyan' | 'purple' | 'rainbow';
+  underglow: 'none' | 'orange' | 'cyan' | 'purple' | 'rainbow' | 'pink';
   hornSound: 'classic' | 'fanfare' | 'melody' | 'turbo_honk';
-  stripe: 'none' | 'white' | 'black' | 'dual_racing';
+  stripe: 'none' | 'white' | 'black' | 'dual_racing' | 'pink_glam';
   topSpeedLevel: number;
   boostLevel: number;
 }
@@ -103,8 +110,8 @@ export interface PlacedFurniture {
   instanceId: string;
   itemId: string;
   room: HouseRoomType;
-  x: number; // percentage 0-100
-  y: number; // percentage 0-100
+  x: number;
+  y: number;
   rotation?: number;
 }
 
