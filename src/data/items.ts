@@ -1,0 +1,331 @@
+import { Item, PetAccessory } from '../types/game';
+
+export const SHOP_ITEMS: Item[] = [
+  // FOOD ITEMS
+  {
+    id: 'food_bone',
+    name: 'Crunchy Bone Treat',
+    category: 'food',
+    price: 15,
+    icon: '🦴',
+    description: 'Savory crispy bone for puppies. Boosts hunger and happiness!',
+    effect: { hunger: 30, happiness: 20 },
+    suitableFor: ['puppy']
+  },
+  {
+    id: 'food_salmon',
+    name: 'Fresh Salmon Flakes',
+    category: 'food',
+    price: 18,
+    icon: '🐟',
+    description: 'Tender wild-caught salmon snack for cats and kittens.',
+    effect: { hunger: 35, happiness: 25 },
+    suitableFor: ['cat', 'kitten']
+  },
+  {
+    id: 'food_milk',
+    name: 'Warm Kitten Milk',
+    category: 'food',
+    price: 12,
+    icon: '🥛',
+    description: 'Creamy wholesome formula packed with vitamins.',
+    effect: { hunger: 25, happiness: 30, energy: 15 },
+    suitableFor: ['kitten', 'cat']
+  },
+  {
+    id: 'food_papaya',
+    name: 'Sweet Papaya Bites',
+    category: 'food',
+    price: 16,
+    icon: '🥭',
+    description: 'Tropical sweet fruit cubes loved by parrots and geckos.',
+    effect: { hunger: 28, happiness: 24 },
+    suitableFor: ['parrot', 'gecko']
+  },
+  {
+    id: 'food_cricket',
+    name: 'Honey Drops & Fruit Flies',
+    category: 'food',
+    price: 14,
+    icon: '🍯',
+    description: 'Delicacy nectar drops for happy geckos.',
+    effect: { hunger: 30, happiness: 20 },
+    suitableFor: ['gecko']
+  },
+  {
+    id: 'food_ferret_oil',
+    name: 'Salmon Oil Drops',
+    category: 'food',
+    price: 20,
+    icon: '🧪',
+    description: 'Irresistible treat that makes ferret fur silky smooth!',
+    effect: { hunger: 30, happiness: 35, cleanliness: 10 },
+    suitableFor: ['ferret']
+  },
+  {
+    id: 'food_bloodworm',
+    name: 'Bloodworm Jelly Cubes',
+    category: 'food',
+    price: 18,
+    icon: '🪱',
+    description: 'Nutritious aquatic snack for smiling axolotls.',
+    effect: { hunger: 35, happiness: 25 },
+    suitableFor: ['axolotl']
+  },
+  {
+    id: 'food_apple_puree',
+    name: 'Golden Apple Puree',
+    category: 'food',
+    price: 15,
+    icon: '🍎',
+    description: 'Sweet apple puree that gets hedgehogs uncurled and smiling!',
+    effect: { hunger: 30, happiness: 25 },
+    suitableFor: ['hedgehog']
+  },
+  {
+    id: 'food_snake_gel',
+    name: 'Pastel Nutrient Gel Drops',
+    category: 'food',
+    price: 20,
+    icon: '🧪',
+    description: 'Special wholesome jelly drops formulated for gentle snakes.',
+    effect: { hunger: 40, happiness: 20 },
+    suitableFor: ['snake']
+  },
+  {
+    id: 'food_sunflower',
+    name: 'Giant Sunflower Seeds',
+    category: 'food',
+    price: 10,
+    icon: '🌻',
+    description: 'Huge crunchy seeds that hamsters pouch into their chubby cheeks!',
+    effect: { hunger: 25, happiness: 25 },
+    suitableFor: ['hamster']
+  },
+  {
+    id: 'food_lettuce',
+    name: 'Crisp Romaine Lettuce',
+    category: 'food',
+    price: 12,
+    icon: '🥬',
+    description: 'Fresh crunchy green leaf that triggers happy "WHEEK WHEEK" squeaks!',
+    effect: { hunger: 30, happiness: 30 },
+    suitableFor: ['guinea_pig']
+  },
+  {
+    id: 'food_universal_feast',
+    name: 'Grand Rainbow Pet Buffet',
+    category: 'food',
+    price: 45,
+    icon: '🍲',
+    description: 'A luxurious master feast that any animal will adore! Restores all hunger.',
+    effect: { hunger: 70, happiness: 50, energy: 30 }
+  },
+
+  // GROOMING & SPA SUPPLIES
+  {
+    id: 'groom_bubble_soap',
+    name: 'Lavender Sparkle Soap',
+    category: 'grooming',
+    price: 20,
+    icon: '🧼',
+    description: 'Creates warm bubbly suds that wash away dirt and give a shiny coat.',
+    effect: { cleanliness: 45, happiness: 15 }
+  },
+  {
+    id: 'groom_soft_brush',
+    name: 'Silky Velvet Pet Brush',
+    category: 'grooming',
+    price: 25,
+    icon: '🪮',
+    description: 'Gentle detangling brush that induces deep purrs and tail wags.',
+    effect: { cleanliness: 25, happiness: 35 }
+  },
+  {
+    id: 'groom_warm_dryer',
+    name: 'Cozy Fluff Warm Air Dryer',
+    category: 'grooming',
+    price: 30,
+    icon: '💨',
+    description: 'Dries fur softly into ultra-fluffy perfection!',
+    effect: { cleanliness: 30, happiness: 25 }
+  },
+  {
+    id: 'groom_vet_tonic',
+    name: 'Rainbow Vitamin Miracle Tonic',
+    category: 'medicine',
+    price: 35,
+    icon: '💊',
+    description: 'Instantly cures tummy aches, snuffles, and brings health to 100%!',
+    effect: { health: 60, happiness: 20, energy: 30 }
+  },
+
+  // TOYS & INTERACTIVE ITEMS
+  {
+    id: 'toy_laser',
+    name: 'Cosmic Laser Pointer',
+    category: 'toy',
+    price: 25,
+    icon: '🔴',
+    description: 'Shines a dancing red dot that cats and ferrets chase relentlessly!',
+    effect: { happiness: 40, energy: -15 }
+  },
+  {
+    id: 'toy_tennis_ball',
+    name: 'Neon Bounce Tennis Ball',
+    category: 'toy',
+    price: 20,
+    icon: '🎾',
+    description: 'Throw it across the room or backyard for an epic game of fetch!',
+    effect: { happiness: 35, energy: -10 }
+  },
+  {
+    id: 'toy_bubble_wand',
+    name: 'Magic Rainbow Bubble Blower',
+    category: 'toy',
+    price: 22,
+    icon: '🫧',
+    description: 'Blows floating non-toxic bubbles that pets love to pop with their noses!',
+    effect: { happiness: 40 }
+  },
+
+  // FURNITURE FOR PET HOUSE
+  {
+    id: 'furn_royal_sofa',
+    name: 'Velvet Royal Pet Couch',
+    category: 'furniture',
+    price: 80,
+    icon: '🛋️',
+    description: 'Luxurious cushioned couch where all pets can lounge together in style.',
+    furnitureRoom: 'living_room',
+    furniturePlacement: { x: 30, y: 55, width: 40, height: 25 }
+  },
+  {
+    id: 'furn_pet_tree',
+    name: 'Giant Castle Scratching Tree',
+    category: 'furniture',
+    price: 95,
+    icon: '🏰',
+    description: 'Multi-level tower with hammocks, scratching sisal, and parrot perches.',
+    furnitureRoom: 'living_room',
+    furniturePlacement: { x: 80, y: 40, width: 25, height: 45 }
+  },
+  {
+    id: 'furn_aquarium_palace',
+    name: 'Glowing Crystal Water Palace',
+    category: 'furniture',
+    price: 120,
+    icon: '🫧',
+    description: 'A dreamy lighted aquatic haven where your axolotl swims blissfully.',
+    furnitureRoom: 'living_room',
+    furniturePlacement: { x: 15, y: 35, width: 30, height: 35 }
+  },
+  {
+    id: 'furn_agility_tunnel',
+    name: 'Rainbow Backyard Agility Tunnel',
+    category: 'furniture',
+    price: 75,
+    icon: '🎪',
+    description: 'Exciting outdoor obstacle course for ferrets, puppies, and guinea pigs!',
+    furnitureRoom: 'backyard',
+    furniturePlacement: { x: 50, y: 50, width: 35, height: 25 }
+  },
+  {
+    id: 'furn_splash_pool',
+    name: 'Backyard Pet Splash Pool',
+    category: 'furniture',
+    price: 110,
+    icon: '🏊',
+    description: 'Heated wading pool with floating duckies and mini water slides.',
+    furnitureRoom: 'backyard',
+    furniturePlacement: { x: 20, y: 65, width: 35, height: 30 }
+  },
+  {
+    id: 'furn_jacuzzi_bath',
+    name: 'Gold Spa Bubble Jacuzzi',
+    category: 'furniture',
+    price: 130,
+    icon: '🛁',
+    description: 'Warm hydro-massage spa bath with rainbow LED bubbles.',
+    furnitureRoom: 'spa',
+    furniturePlacement: { x: 50, y: 55, width: 40, height: 30 }
+  },
+  {
+    id: 'furn_canopy_bed',
+    name: 'Cloud Nine Snuggle Canopy Bed',
+    category: 'furniture',
+    price: 90,
+    icon: '🛏️',
+    description: 'The softest memory foam bed in the universe with warm fleece blankets.',
+    furnitureRoom: 'bedroom',
+    furniturePlacement: { x: 50, y: 55, width: 45, height: 35 }
+  },
+  {
+    id: 'furn_gourmet_kitchen_bar',
+    name: 'Chef Pet Buffet Island',
+    category: 'furniture',
+    price: 100,
+    icon: '🍽️',
+    description: 'Automatic treat dispenser and fresh water fountain station.',
+    furnitureRoom: 'kitchen',
+    furniturePlacement: { x: 50, y: 50, width: 40, height: 30 }
+  }
+];
+
+export const PET_ACCESSORIES: PetAccessory[] = [
+  // HATS
+  { id: 'hat_party', name: 'Party Sparkle Hat', type: 'hat', icon: '🥳', color: '#ec4899', price: 40 },
+  { id: 'hat_crown', name: 'Golden Royal Crown', type: 'hat', icon: '👑', color: '#eab308', price: 100 },
+  { id: 'hat_tophat', name: 'Fancy Gentleman Top Hat', type: 'hat', icon: '🎩', color: '#1e293b', price: 60 },
+  { id: 'hat_chef', name: 'Master Chef Toque', type: 'hat', icon: '👨‍🍳', color: '#ffffff', price: 50 },
+  { id: 'hat_goggles', name: 'Ferrari Pilot Aviator Goggles', type: 'hat', icon: '🥽', color: '#ff5500', price: 80 },
+  { id: 'hat_flower', name: 'Rainbow Flower Crown', type: 'hat', icon: '🌸', color: '#f43f5e', price: 45 },
+  { id: 'hat_detective', name: 'Sherlock Detective Cap', type: 'hat', icon: '🕵️', color: '#78350f', price: 55 },
+
+  // GLASSES
+  { id: 'glass_cool', name: 'VIP Aviator Shades', type: 'glasses', icon: '🕶️', color: '#0f172a', price: 50 },
+  { id: 'glass_heart', name: 'Ruby Heart Glasses', type: 'glasses', icon: '💖', color: '#f43f5e', price: 45 },
+  { id: 'glass_star', name: 'Star-Eye Glam Glasses', type: 'glasses', icon: '⭐', color: '#eab308', price: 55 },
+
+  // NECK & OUTFITS
+  { id: 'neck_bowtie', name: 'Scarlet Satin Bowtie', type: 'neck', icon: '🎀', color: '#ef4444', price: 35 },
+  { id: 'neck_bandana', name: 'Ferrari Racing Bandana', type: 'neck', icon: '🧣', color: '#ff5500', price: 40 },
+  { id: 'neck_medal', name: 'Gold Champion Medal', type: 'neck', icon: '🥇', color: '#fbbf24', price: 90 },
+  { id: 'outfit_cape', name: 'Super Pet Flying Cape', type: 'outfit', icon: '🦸', color: '#3b82f6', price: 85 }
+];
+
+export const FERRARI_UPGRADES = {
+  paints: [
+    { id: '#ff5500', name: 'Sunset Racing Orange', price: 0, tag: 'Signature' },
+    { id: '#ff2200', name: 'Ferrari Corsa Red', price: 60, tag: 'Classic' },
+    { id: '#ffaa00', name: 'Gold Blaze Metallic', price: 80, tag: 'Prestige' },
+    { id: '#00d2ff', name: 'Electric Miami Cyan', price: 90, tag: 'Special' },
+    { id: '#d946ef', name: 'Neon Cyber Magenta', price: 100, tag: 'Hyper' },
+    { id: '#10b981', name: 'Emerald Speed Mint', price: 75, tag: 'Sleek' }
+  ],
+  spoilers: [
+    { id: 'none', name: 'Clean Stock Wing', price: 0 },
+    { id: 'sport', name: 'Sport Carbon Wing', price: 70 },
+    { id: 'gt_wing', name: 'GT Pro High Aero Wing', price: 120 },
+    { id: 'rocket', name: 'Rocket Twin Boost Wing', price: 180 }
+  ],
+  rims: [
+    { id: 'standard', name: 'Alloy 5-Spoke', price: 0 },
+    { id: 'golden_star', name: '24K Gold Star Rims', price: 90 },
+    { id: 'chrome_spin', name: 'Hyper Chrome Turbines', price: 110 },
+    { id: 'neon_glow', name: 'RGB Glow Ring Rims', price: 140 }
+  ],
+  underglow: [
+    { id: 'none', name: 'No Underglow', price: 0 },
+    { id: 'orange', name: 'Inferno Orange Glow', price: 50 },
+    { id: 'cyan', name: 'Electric Cyan Glow', price: 60 },
+    { id: 'purple', name: 'Night Cyber Purple', price: 65 },
+    { id: 'rainbow', name: 'Hyper Rainbow Pulse', price: 120 }
+  ],
+  horns: [
+    { id: 'classic', name: 'Ferrari Dual Tone', price: 0 },
+    { id: 'fanfare', name: 'Italian Victory Fanfare', price: 40 },
+    { id: 'melody', name: 'Sweet Pet Harmony Horn', price: 50 },
+    { id: 'turbo_honk', name: 'Hyper Turbo Blast', price: 75 }
+  ]
+};

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#ff5500" />
+  <circle cx="50" cy="50" r="44" fill="#ff7722" stroke="#ffffff" stroke-width="3" />
+  
+  <!-- Ferrari Car Silhouette -->
+  <path d="M 22 62 Q 25 50 35 48 Q 45 40 60 40 Q 75 40 82 52 Q 85 58 84 64 L 22 64 Z" fill="#ffffff" />
+  <circle cx="34" cy="64" r="7" fill="#1e293b" stroke="#ffffff" stroke-width="2" />
+  <circle cx="72" cy="64" r="7" fill="#1e293b" stroke="#ffffff" stroke-width="2" />
+  
+  <!-- Cute Pet Paw in the sky -->
+  <ellipse cx="50" cy="30" rx="7" ry="6" fill="#fef08a" />
+  <circle cx="41" cy="22" r="3" fill="#fef08a" />
+  <circle cx="50" cy="18" r="3" fill="#fef08a" />
+  <circle cx="59" cy="22" r="3" fill="#fef08a" />
+  
+  <!-- Sparkles -->
+  <polygon points="78,22 80,26 84,28 80,30 78,34 76,30 72,28 76,26" fill="#ffffff" />
+</svg>

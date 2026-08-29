@@ -1,0 +1,22 @@
+{
+  "name": "Pet World: Ferrari Rescue & Dream House",
+  "short_name": "Pet World",
+  "description": "Rescue pets in your Orange Ferrari and build your Dream Pet House!",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fffbeb",
+  "theme_color": "#ff5500",
+  "icons": [
+    {
+      "src": "pwa-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
