@@ -14,16 +14,18 @@ interface PetAvatarProps {
   facing?: 'left' | 'right';
 }
 
+const baseUrl = import.meta.env.BASE_URL || '/';
+
 const PET_IMAGE_MAP: Partial<Record<AnimalType, string>> = {
-  puppy: './pets/puppy.png',
-  cat: './pets/cat.png',
-  kitten: './pets/kitten.png',
-  parrot: './pets/parrot.png',
-  gecko: './pets/gecko.png',
-  ferret: './pets/ferret.png',
-  axolotl: './pets/axolotl.png',
-  hedgehog: './pets/hedgehog.png',
-  snake: './pets/snake.png'
+  puppy: `${baseUrl}pets/puppy.png`,
+  cat: `${baseUrl}pets/cat.png`,
+  kitten: `${baseUrl}pets/kitten.png`,
+  parrot: `${baseUrl}pets/parrot.png`,
+  gecko: `${baseUrl}pets/gecko.png`,
+  ferret: `${baseUrl}pets/ferret.png`,
+  axolotl: `${baseUrl}pets/axolotl.png`,
+  hedgehog: `${baseUrl}pets/hedgehog.png`,
+  snake: `${baseUrl}pets/snake.png`
 };
 
 export const PetAvatar: React.FC<PetAvatarProps> = ({

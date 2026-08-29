@@ -65,6 +65,8 @@ export const PetHouse: React.FC<PetHouseProps> = ({
 
   const activePet = adoptedPets.find(p => p.id === (selectedPetId || activePetId)) || adoptedPets[0] || null;
 
+  const baseUrl = import.meta.env.BASE_URL || '/';
+
   // Realistic Ken Mojo Dojo Casa House Rooms with High-Definition Photography
   const mojoRooms: {
     id: HouseRoomType;
@@ -78,35 +80,35 @@ export const PetHouse: React.FC<PetHouseProps> = ({
       name: "Ken's Mojo Dojo Great Room",
       icon: '🛋️',
       tagline: 'Cognac leather Chesterfield couches, stone fireplace, and stallion statues.',
-      imagePath: './rooms/mojo_living_lounge.jpg'
+      imagePath: `${baseUrl}rooms/mojo_living_lounge.jpg`
     },
     {
       id: 'deck_infinity_pool',
       name: 'Outdoor Infinity Deck & Pool',
       icon: '🏊',
       tagline: 'Teak wood sun deck, crystal infinity pool, and mountain sunset view.',
-      imagePath: './rooms/deck_infinity_pool.jpg'
+      imagePath: `${baseUrl}rooms/deck_infinity_pool.jpg`
     },
     {
       id: 'garage_showroom_lounge',
       name: 'Ferrari Garage & Game Bay',
       icon: '🏎️',
       tagline: 'Glass-walled Ferrari showroom bay, foosball table, and mini-fridge.',
-      imagePath: './rooms/garage_showroom_lounge.jpg'
+      imagePath: `${baseUrl}rooms/garage_showroom_lounge.jpg`
     },
     {
       id: 'master_suite_bedroom',
       name: 'Mojo Master Suite',
       icon: '🛏️',
       tagline: 'King leather headboard bed, cowhide throws, and stone wall fireplace.',
-      imagePath: './rooms/master_suite_bedroom.jpg'
+      imagePath: `${baseUrl}rooms/master_suite_bedroom.jpg`
     },
     {
       id: 'gourmet_kitchen_bar',
       name: 'Granite Kitchen & Snack Bar',
       icon: '🍽️',
       tagline: 'Black granite countertops, stainless steel appliances, and chef pet feast island.',
-      imagePath: './rooms/gourmet_kitchen_bar.jpg'
+      imagePath: `${baseUrl}rooms/gourmet_kitchen_bar.jpg`
     }
   ];
 
