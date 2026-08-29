@@ -25,7 +25,8 @@ const PET_IMAGE_MAP: Partial<Record<AnimalType, string>> = {
   ferret: `${baseUrl}pets/ferret.png`,
   axolotl: `${baseUrl}pets/axolotl.png`,
   hedgehog: `${baseUrl}pets/hedgehog.png`,
-  snake: `${baseUrl}pets/snake.png`
+  snake: `${baseUrl}pets/snake.png`,
+  hamster: `${baseUrl}pets/hamster.png`
 };
 
 export const PetAvatar: React.FC<PetAvatarProps> = ({
