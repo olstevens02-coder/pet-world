@@ -62,10 +62,31 @@ export const App: React.FC = () => {
     try {
       const saved = localStorage.getItem(SAVE_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        const validRooms: HouseRoomType[] = [
+          'mojo_living_lounge',
+          'deck_infinity_pool',
+          'garage_showroom_lounge',
+          'master_suite_bedroom',
+          'gourmet_kitchen_bar'
+        ];
+        const currentRoom = validRooms.includes(parsed.currentRoom)
+          ? parsed.currentRoom
+          : 'mojo_living_lounge';
+
+        return {
+          ...initialGameState,
+          ...parsed,
+          currentRoom,
+          unlockedRooms: validRooms,
+          shelterPets: Array.isArray(parsed.shelterPets) && parsed.shelterPets.length > 0
+            ? parsed.shelterPets
+            : INITIAL_SHELTER_PETS,
+          adoptedPets: Array.isArray(parsed.adoptedPets) ? parsed.adoptedPets : []
+        };
       }
     } catch (e) {
-      // Fallback
+      console.error('Save parse error:', e);
     }
     return initialGameState;
   });
