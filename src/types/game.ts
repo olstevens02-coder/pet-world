@@ -14,11 +14,11 @@ export type AnimalType =
 export type LocationType = 'shelter' | 'driving' | 'house' | 'garage' | 'minigames';
 
 export type HouseRoomType =
-  | 'glam_living_room'
-  | 'pool_patio_slide'
-  | 'glam_salon_vanity'
-  | 'dream_bedroom'
-  | 'rooftop_party_deck';
+  | 'mojo_living_lounge'
+  | 'deck_infinity_pool'
+  | 'garage_showroom_lounge'
+  | 'master_suite_bedroom'
+  | 'gourmet_kitchen_bar';
 
 export interface PetNeeds {
   hunger: number;     // 0 to 100
@@ -48,8 +48,6 @@ export interface Pet {
     accent: string;
     eyeColor: string;
     bellyColor?: string;
-    gradientStart?: string;
-    gradientEnd?: string;
   };
   gender: 'boy' | 'girl' | 'friend';
   personality: string;
@@ -77,7 +75,7 @@ export interface FerrariCustomization {
   rims: 'standard' | 'golden_star' | 'chrome_spin' | 'neon_glow';
   underglow: 'none' | 'orange' | 'cyan' | 'purple' | 'rainbow' | 'pink';
   hornSound: 'classic' | 'fanfare' | 'melody' | 'turbo_honk';
-  stripe: 'none' | 'white' | 'black' | 'dual_racing' | 'pink_glam';
+  stripe: 'none' | 'white' | 'black' | 'dual_racing';
   topSpeedLevel: number;
   boostLevel: number;
 }

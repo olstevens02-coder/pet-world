@@ -113,13 +113,13 @@ export const SHOP_ITEMS: Item[] = [
     suitableFor: ['guinea_pig']
   },
   {
-    id: 'food_barbie_cupcake',
-    name: 'Barbie Pink Strawberry Cupcake',
+    id: 'food_mojo_steak',
+    name: 'Prime Wagyu Pet Steak Bites',
     category: 'food',
-    price: 24,
-    icon: '🧁',
-    description: 'Sparkling pink frosted treat with rainbow sprinkles that every pet adores!',
-    effect: { hunger: 45, happiness: 40 }
+    price: 35,
+    icon: '🥩',
+    description: 'Delicious flame-grilled steak bites fit for a Mojo Dojo champion!',
+    effect: { hunger: 60, happiness: 45, energy: 25 }
   },
   {
     id: 'food_universal_feast',
@@ -134,11 +134,11 @@ export const SHOP_ITEMS: Item[] = [
   // GROOMING & SPA SUPPLIES
   {
     id: 'groom_bubble_soap',
-    name: 'Barbie Bubble Sparkle Soap',
+    name: 'Cedar & Amber Pet Shampoo',
     category: 'grooming',
     price: 20,
     icon: '🧼',
-    description: 'Creates warm pink bubbly suds that wash away dirt and give a glossy coat.',
+    description: 'Creates warm rich lather that cleans coats with a fresh woody scent.',
     effect: { cleanliness: 45, happiness: 15 }
   },
   {
@@ -176,7 +176,7 @@ export const SHOP_ITEMS: Item[] = [
     category: 'toy',
     price: 25,
     icon: '🔴',
-    description: 'Shines a dancing red dot that pets chase across the Barbie Dreamhouse!',
+    description: 'Shines a dancing red dot that pets chase across the Mojo Dojo house!',
     effect: { happiness: 40, energy: -15 }
   },
   {
@@ -185,7 +185,7 @@ export const SHOP_ITEMS: Item[] = [
     category: 'toy',
     price: 20,
     icon: '🎾',
-    description: 'Throw it across the room for an epic game of fetch!',
+    description: 'Throw it across the hardwood floor for an epic game of fetch!',
     effect: { happiness: 35, energy: -10 }
   },
   {
@@ -198,119 +198,119 @@ export const SHOP_ITEMS: Item[] = [
     effect: { happiness: 40 }
   },
 
-  // BARBIE DREAMHOUSE FURNITURE
+  // KEN MOJO DOJO CASA HOUSE FURNITURE
   {
-    id: 'furn_barbie_heart_sofa',
-    name: 'Plush Barbie Pink Heart Sofa',
+    id: 'furn_leather_chesterfield',
+    name: 'Cognac Leather Chesterfield Sectional',
     category: 'furniture',
-    price: 85,
+    price: 90,
     icon: '🛋️',
-    description: 'Signature hot pink velvet sofa where all your pets can cuddle together.',
-    furnitureRoom: 'glam_living_room',
+    description: 'Deep button-tufted cognac leather couch where all pets love to nap.',
+    furnitureRoom: 'mojo_living_lounge',
     furniturePlacement: { x: 30, y: 55, width: 40, height: 25 }
   },
   {
-    id: 'furn_barbie_chandelier',
-    name: 'Golden Crystal Palace Chandelier',
+    id: 'furn_stallion_statue',
+    name: 'Golden Stallion Horse Sculpture',
     category: 'furniture',
-    price: 110,
-    icon: '💎',
-    description: 'Dazzling chandelier that casts sparkling light over the living room.',
-    furnitureRoom: 'glam_living_room',
-    furniturePlacement: { x: 50, y: 15, width: 25, height: 25 }
+    price: 120,
+    icon: '🐎',
+    description: 'Majestic horse sculpture that gives maximum Mojo Dojo mojo energy!',
+    furnitureRoom: 'mojo_living_lounge',
+    furniturePlacement: { x: 75, y: 35, width: 25, height: 35 }
   },
   {
-    id: 'furn_spiral_slide_pool',
-    name: 'Pink Spiral Pool Water Slide',
-    category: 'furniture',
-    price: 150,
-    icon: '🎢',
-    description: 'Giant spiral slide descending right into the turquoise swimming pool!',
-    furnitureRoom: 'pool_patio_slide',
-    furniturePlacement: { x: 20, y: 40, width: 35, height: 50 }
-  },
-  {
-    id: 'furn_flamingo_float',
-    name: 'Giant Pink Flamingo Pool Float',
-    category: 'furniture',
-    price: 90,
-    icon: '🦩',
-    description: 'Inflatable luxury flamingo lounger for sunbathing pets.',
-    furnitureRoom: 'pool_patio_slide',
-    furniturePlacement: { x: 65, y: 65, width: 30, height: 30 }
-  },
-  {
-    id: 'furn_hollywood_vanity',
-    name: 'Hollywood Lighted Glam Vanity',
-    category: 'furniture',
-    price: 130,
-    icon: '🪞',
-    description: 'Lighted vanity mirror with beauty brushes and pet perfume mist.',
-    furnitureRoom: 'glam_salon_vanity',
-    furniturePlacement: { x: 50, y: 45, width: 40, height: 35 }
-  },
-  {
-    id: 'furn_gold_jacuzzi',
-    name: 'Golden Hydro Bubble Jacuzzi',
+    id: 'furn_infinity_pool_lounge',
+    name: 'Teak Sun Lounger & Infinity Pool',
     category: 'furniture',
     price: 140,
-    icon: '🛁',
-    description: 'Heated bubble massage tub with fragrant rose petals.',
-    furnitureRoom: 'glam_salon_vanity',
-    furniturePlacement: { x: 20, y: 60, width: 35, height: 30 }
+    icon: '🏊',
+    description: 'Heated infinity pool with teak wood sun deck overlooking the mountains.',
+    furnitureRoom: 'deck_infinity_pool',
+    furniturePlacement: { x: 50, y: 45, width: 45, height: 35 }
   },
   {
-    id: 'furn_canopy_bed',
-    name: 'Hot Pink Silk Canopy Bed',
+    id: 'furn_bbq_smoker',
+    name: 'Master Smoker BBQ Grill',
     category: 'furniture',
     price: 95,
+    icon: '🥩',
+    description: 'Flame smoker grill for cooking delicious pet wagyu steaks.',
+    furnitureRoom: 'deck_infinity_pool',
+    furniturePlacement: { x: 20, y: 60, width: 30, height: 30 }
+  },
+  {
+    id: 'furn_foosball_table',
+    name: 'Tournament Foosball Table',
+    category: 'furniture',
+    price: 85,
+    icon: '⚽',
+    description: 'Classic game table for friendly pet tournaments.',
+    furnitureRoom: 'garage_showroom_lounge',
+    furniturePlacement: { x: 70, y: 50, width: 35, height: 30 }
+  },
+  {
+    id: 'furn_mini_fridge',
+    name: 'Glass Door Mini-Fridge Bar',
+    category: 'furniture',
+    price: 75,
+    icon: '🧃',
+    description: 'Stocked with fresh cold beverages and pet treat pouches.',
+    furnitureRoom: 'garage_showroom_lounge',
+    furniturePlacement: { x: 20, y: 45, width: 25, height: 35 }
+  },
+  {
+    id: 'furn_king_leather_bed',
+    name: 'King Leather Headboard Bed',
+    category: 'furniture',
+    price: 110,
     icon: '🛏️',
-    description: 'The softest memory foam bed in the universe with warm fleece blankets.',
-    furnitureRoom: 'dream_bedroom',
+    description: 'Spacious memory foam bed with rustic leather headboard and warm throws.',
+    furnitureRoom: 'master_suite_bedroom',
     furniturePlacement: { x: 45, y: 55, width: 45, height: 35 }
   },
   {
-    id: 'furn_disco_deck',
-    name: 'Rooftop DJ Dance Stage & Disco Ball',
+    id: 'furn_granite_kitchen_island',
+    name: 'Black Granite Chef Island',
     category: 'furniture',
-    price: 125,
-    icon: '🪩',
-    description: 'Spinning disco lights and DJ booth for pet dance parties under the stars!',
-    furnitureRoom: 'rooftop_party_deck',
-    furniturePlacement: { x: 50, y: 40, width: 40, height: 30 }
+    price: 115,
+    icon: '🍽️',
+    description: 'Luxury stone kitchen island with automatic water fountains and feeder bowls.',
+    furnitureRoom: 'gourmet_kitchen_bar',
+    furniturePlacement: { x: 50, y: 45, width: 40, height: 35 }
   }
 ];
 
 export const PET_ACCESSORIES: PetAccessory[] = [
-  // HATS & TIARAS
-  { id: 'hat_crown', name: 'Barbie Sparkle Tiara Crown', type: 'hat', icon: '👑', color: '#ec4899', price: 60 },
-  { id: 'hat_flower', name: 'Pink Rose Flower Crown', type: 'hat', icon: '🌸', color: '#f43f5e', price: 45 },
-  { id: 'hat_party', name: 'Party Sparkle Hat', type: 'hat', icon: '🥳', color: '#ec4899', price: 40 },
-  { id: 'hat_tophat', name: 'Fancy Gentleman Top Hat', type: 'hat', icon: '🎩', color: '#1e293b', price: 60 },
-  { id: 'hat_chef', name: 'Master Chef Toque', type: 'hat', icon: '👨‍🍳', color: '#ffffff', price: 50 },
+  // HATS
   { id: 'hat_goggles', name: 'Ferrari Pilot Aviator Goggles', type: 'hat', icon: '🥽', color: '#ff5500', price: 80 },
   { id: 'hat_detective', name: 'Sherlock Detective Cap', type: 'hat', icon: '🕵️', color: '#78350f', price: 55 },
+  { id: 'hat_tophat', name: 'Fancy Gentleman Top Hat', type: 'hat', icon: '🎩', color: '#1e293b', price: 60 },
+  { id: 'hat_crown', name: 'Golden Royal Crown', type: 'hat', icon: '👑', color: '#eab308', price: 100 },
+  { id: 'hat_party', name: 'Party Sparkle Hat', type: 'hat', icon: '🥳', color: '#ec4899', price: 40 },
+  { id: 'hat_chef', name: 'Master Chef Toque', type: 'hat', icon: '👨‍🍳', color: '#ffffff', price: 50 },
+  { id: 'hat_flower', name: 'Rainbow Flower Crown', type: 'hat', icon: '🌸', color: '#f43f5e', price: 45 },
 
   // GLASSES
-  { id: 'glass_heart', name: 'Barbie Pink Heart Glasses', type: 'glasses', icon: '💖', color: '#ec4899', price: 45 },
   { id: 'glass_cool', name: 'VIP Aviator Shades', type: 'glasses', icon: '🕶️', color: '#0f172a', price: 50 },
   { id: 'glass_star', name: 'Star-Eye Glam Glasses', type: 'glasses', icon: '⭐', color: '#eab308', price: 55 },
+  { id: 'glass_heart', name: 'Ruby Heart Glasses', type: 'glasses', icon: '💖', color: '#f43f5e', price: 45 },
 
   // NECK & OUTFITS
-  { id: 'neck_bowtie', name: 'Barbie Magenta Satin Bowtie', type: 'neck', icon: '🎀', color: '#ec4899', price: 35 },
   { id: 'neck_bandana', name: 'Ferrari Racing Bandana', type: 'neck', icon: '🧣', color: '#ff5500', price: 40 },
   { id: 'neck_medal', name: 'Gold Champion Medal', type: 'neck', icon: '🥇', color: '#fbbf24', price: 90 },
-  { id: 'outfit_cape', name: 'Super Pet Flying Cape', type: 'outfit', icon: '🦸', color: '#ec4899', price: 85 }
+  { id: 'neck_bowtie', name: 'Scarlet Satin Bowtie', type: 'neck', icon: '🎀', color: '#ef4444', price: 35 },
+  { id: 'outfit_cape', name: 'Super Pet Flying Cape', type: 'outfit', icon: '🦸', color: '#3b82f6', price: 85 }
 ];
 
 export const FERRARI_UPGRADES = {
   paints: [
     { id: '#ff5500', name: 'Sunset Racing Orange', price: 0, tag: 'Signature' },
-    { id: '#ff2a85', name: 'Barbie Glam Hot Pink', price: 60, tag: 'Dreamhouse' },
     { id: '#ff2200', name: 'Ferrari Corsa Red', price: 60, tag: 'Classic' },
     { id: '#ffaa00', name: 'Gold Blaze Metallic', price: 80, tag: 'Prestige' },
     { id: '#00d2ff', name: 'Electric Miami Cyan', price: 90, tag: 'Special' },
-    { id: '#d946ef', name: 'Neon Cyber Magenta', price: 100, tag: 'Hyper' }
+    { id: '#d946ef', name: 'Neon Cyber Magenta', price: 100, tag: 'Hyper' },
+    { id: '#10b981', name: 'Emerald Speed Mint', price: 75, tag: 'Sleek' }
   ],
   spoilers: [
     { id: 'none', name: 'Clean Stock Wing', price: 0 },
@@ -326,7 +326,6 @@ export const FERRARI_UPGRADES = {
   ],
   underglow: [
     { id: 'none', name: 'No Underglow', price: 0 },
-    { id: 'pink', name: 'Barbie Glam Pink Glow', price: 50 },
     { id: 'orange', name: 'Inferno Orange Glow', price: 50 },
     { id: 'cyan', name: 'Electric Cyan Glow', price: 60 },
     { id: 'purple', name: 'Night Cyber Purple', price: 65 },

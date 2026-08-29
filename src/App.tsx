@@ -41,8 +41,8 @@ const initialGameState: GameState = {
     groom_bubble_soap: 2
   },
   placedFurniture: [],
-  currentRoom: 'glam_living_room',
-  unlockedRooms: ['glam_living_room', 'pool_patio_slide', 'glam_salon_vanity', 'dream_bedroom', 'rooftop_party_deck'],
+  currentRoom: 'mojo_living_lounge',
+  unlockedRooms: ['mojo_living_lounge', 'deck_infinity_pool', 'garage_showroom_lounge', 'master_suite_bedroom', 'gourmet_kitchen_bar'],
   photoAlbum: [],
   soundEnabled: true,
   musicEnabled: true,
