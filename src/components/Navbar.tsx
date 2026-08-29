@@ -33,9 +33,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenInstallGuide
 }) => {
   const navLinks: { id: LocationType; label: string; icon: any; color: string }[] = [
+    { id: 'house', label: 'Mojo Dojo Casa', icon: Home, color: 'text-amber-500' },
+    { id: 'driving', label: 'Ride Ferrari', icon: Car, color: 'text-orange-500' },
     { id: 'shelter', label: 'Animal Shelter', icon: Heart, color: 'text-sky-500' },
-    { id: 'driving', label: 'Drive Ferrari', icon: Car, color: 'text-orange-500' },
-    { id: 'house', label: 'Dream House', icon: Home, color: 'text-amber-500' },
     { id: 'garage', label: 'Ferrari Garage', icon: Wrench, color: 'text-rose-500' },
     { id: 'minigames', label: 'Mini-Games', icon: Trophy, color: 'text-purple-500' }
   ];

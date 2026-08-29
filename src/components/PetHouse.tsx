@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Pet, HouseRoomType, Item, PetAccessory } from '../types/game';
+import { Pet, HouseRoomType, Item, PetAccessory, PetNeeds } from '../types/game';
 import { SHOP_ITEMS, PET_ACCESSORIES } from '../data/items';
 import { PetAvatar } from './PetAvatar';
 import { soundManager } from '../utils/audio';
@@ -8,19 +8,18 @@ import {
   Sparkles,
   Heart,
   Utensils,
-  Camera,
-  Shirt,
-  Volume2,
-  Tv,
   Car,
   Flame,
-  Wine,
-  Trophy,
+  Zap,
+  Radio,
+  Shirt,
+  Moon,
   Droplets,
   Wind,
   Smile,
-  Zap,
-  Radio
+  ShieldAlert,
+  Award,
+  Music
 } from 'lucide-react';
 
 interface PetHouseProps {
@@ -36,6 +35,7 @@ interface PetHouseProps {
   onBuyItem: (item: Item) => void;
   onOpenPhotoBooth: () => void;
   onStartDrive: () => void;
+  onGroomPet?: (petId: string, type: 'wash' | 'brush' | 'heal') => void;
 }
 
 interface PetRoamState {
@@ -46,7 +46,7 @@ interface PetRoamState {
   targetY: number;
   isWalking: boolean;
   facing: 'left' | 'right';
-  action: 'idle' | 'walking' | 'sniffing' | 'napping' | 'playing';
+  action: 'idle' | 'walking' | 'sniffing' | 'napping' | 'playing' | 'eating' | 'bathing';
 }
 
 export const PetHouse: React.FC<PetHouseProps> = ({
@@ -61,17 +61,19 @@ export const PetHouse: React.FC<PetHouseProps> = ({
   onEquipAccessory,
   onBuyItem,
   onOpenPhotoBooth,
-  onStartDrive
+  onStartDrive,
+  onGroomPet
 }) => {
-  const [activeTab, setActiveTab] = useState<'roam' | 'wardrobe' | 'shop' | 'toys'>('roam');
+  const [activeTab, setActiveTab] = useState<'roam' | 'wardrobe' | 'shop' | 'toys' | 'care'>('roam');
   const [selectedPetId, setSelectedPetId] = useState<string | null>(activePetId || (adoptedPets[0]?.id ?? null));
   const [laserTarget, setLaserTarget] = useState<{ x: number; y: number } | null>(null);
   const [bouncingBall, setBouncingBall] = useState<{ x: number; y: number } | null>(null);
 
-  // Interactive Wash & Grooming State
+  // Care Modals & States
   const [showWashModal, setShowWashModal] = useState(false);
-  const [washStep, setWashStep] = useState<'soap' | 'rinse' | 'dry' | 'brush'>('soap');
-  const [cleanlinessProgress, setCleanlinessProgress] = useState(0);
+  const [showFeedModal, setShowFeedModal] = useState(false);
+  const [showSleepModal, setShowSleepModal] = useState(false);
+  const [cleanlinessProgress, setCleanlinessProgress] = useState(65);
   const [sudsCount, setSudsCount] = useState<number>(0);
 
   // Ferrari Quick Ride Simulation in Room
@@ -297,7 +299,7 @@ export const PetHouse: React.FC<PetHouseProps> = ({
   // WASHING & CLEANING INTERACTIONS
   const handleApplySoap = () => {
     soundManager.playSoapSuds();
-    setSudsCount(prev => Math.min(12, prev + 2));
+    setSudsCount(prev => Math.min(15, prev + 3));
     setCleanlinessProgress(prev => Math.min(100, prev + 20));
   };
 
@@ -313,10 +315,13 @@ export const PetHouse: React.FC<PetHouseProps> = ({
   };
 
   const handleBrush = () => {
-    soundManager.playHeart();
+    soundManager.playBrush();
     soundManager.playPetSound(activePet?.species || 'puppy');
     setCleanlinessProgress(100);
     confetti({ particleCount: 60, spread: 80 });
+    if (activePet && onGroomPet) {
+      onGroomPet(activePet.id, 'brush');
+    }
   };
 
   // FERRARI QUICK RIDE ACCELERATION
@@ -354,10 +359,10 @@ export const PetHouse: React.FC<PetHouseProps> = ({
             <span>🎸 ROCKIN' KEN MOJO DOJO CASA HOUSE 🏎️</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-black tracking-tight drop-shadow-xl font-['Fredoka']">
-            Mojo Dojo Casa House
+            Ken's Mojo Dojo Casa House
           </h1>
           <p className="text-amber-100/80 font-bold max-w-xl text-sm md:text-base">
-            Turn up the rock music, give your pet a warm bubbly wash, and hop in the Orange Ferrari to go for a high-speed ride!
+            Turn up the rock music, give {activePet?.name || 'the dog'} warm bubble baths and treats, and hop into the Orange Ferrari!
           </p>
         </div>
 
@@ -367,14 +372,14 @@ export const PetHouse: React.FC<PetHouseProps> = ({
           <button
             onClick={() => {
               setShowWashModal(true);
-              setCleanlinessProgress(40);
+              setCleanlinessProgress(50);
               setSudsCount(0);
               soundManager.playSoapSuds();
             }}
             className="px-5 py-3.5 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white font-black text-sm rounded-2xl shadow-xl flex items-center gap-2 active:scale-95 transition-all border border-sky-300"
           >
             <Droplets size={20} className="text-sky-200 animate-bounce" />
-            <span>🧼 Clean & Wash Him!</span>
+            <span>🧼 Give Bath & Clean Him!</span>
           </button>
 
           {/* Ride Orange Ferrari CTA */}
@@ -390,6 +395,68 @@ export const PetHouse: React.FC<PetHouseProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Quick Care Needs HUD Bar for Active Pet */}
+      {activePet && (
+        <div className="bg-stone-900/90 border-2 border-amber-500/40 rounded-2xl p-4 shadow-xl flex flex-wrap items-center justify-between gap-4 text-white">
+          <div className="flex items-center gap-3">
+            <span className="text-3xl">🐾</span>
+            <div>
+              <span className="text-xs font-black text-amber-400 uppercase tracking-wider block">
+                {activePet.name}'s Care & Needs
+              </span>
+              <span className="font-extrabold text-sm text-amber-100">
+                Give him baths, tasty snacks, naps & rides!
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => {
+                setShowWashModal(true);
+                soundManager.playSoapSuds();
+              }}
+              className="px-3.5 py-2 bg-sky-950/80 hover:bg-sky-900 border border-sky-400 text-sky-200 rounded-xl text-xs font-black flex items-center gap-1.5 active:scale-95"
+            >
+              <span>🛁 Bath: {activePet.needs.cleanliness}%</span>
+            </button>
+
+            <button
+              onClick={() => {
+                soundManager.playMunch();
+                soundManager.playHeart();
+                const treat = SHOP_ITEMS.find(i => i.id === 'food_wagyu_steak') || SHOP_ITEMS[0];
+                onFeedPet(activePet.id, treat);
+                confetti({ particleCount: 30, spread: 50 });
+              }}
+              className="px-3.5 py-2 bg-amber-950/80 hover:bg-amber-900 border border-amber-500 text-amber-200 rounded-xl text-xs font-black flex items-center gap-1.5 active:scale-95"
+            >
+              <span>🍖 Feed Treat: {activePet.needs.hunger}%</span>
+            </button>
+
+            <button
+              onClick={() => {
+                handleThrowBall();
+              }}
+              className="px-3.5 py-2 bg-purple-950/80 hover:bg-purple-900 border border-purple-400 text-purple-200 rounded-xl text-xs font-black flex items-center gap-1.5 active:scale-95"
+            >
+              <span>🎾 Play: {activePet.needs.happiness}%</span>
+            </button>
+
+            <button
+              onClick={() => {
+                soundManager.playHeart();
+                soundManager.playPetSound(activePet.species);
+                confetti({ particleCount: 40, spread: 60 });
+              }}
+              className="px-3.5 py-2 bg-rose-950/80 hover:bg-rose-900 border border-rose-400 text-rose-200 rounded-xl text-xs font-black flex items-center gap-1.5 active:scale-95"
+            >
+              <span>❤️ Pet Him!</span>
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Room Navigation Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
@@ -532,12 +599,12 @@ export const PetHouse: React.FC<PetHouseProps> = ({
               onClick={(e) => {
                 e.stopPropagation();
                 setShowWashModal(true);
-                setCleanlinessProgress(40);
+                setCleanlinessProgress(50);
                 soundManager.playSoapSuds();
               }}
               className="px-4 py-2 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white rounded-xl font-black text-xs shadow-md flex items-center gap-1.5 active:scale-95 border border-sky-300"
             >
-              <span>🧼 Wash & Clean Him</span>
+              <span>🧼 Give Bath & Clean</span>
             </button>
 
             <button
@@ -578,12 +645,12 @@ export const PetHouse: React.FC<PetHouseProps> = ({
           </div>
 
           <span className="text-xs font-black text-amber-300/80 hidden sm:block">
-            💡 Tap any spot on the floor to call {activePet?.name || 'your pet'}!
+            💡 Tap any spot on the floor to call {activePet?.name || 'your dog'}!
           </span>
         </div>
       </div>
 
-      {/* INTERACTIVE CLEAN & WASH MODAL ("CLEAN HIM") */}
+      {/* INTERACTIVE CLEAN & WASH MODAL ("GIVE DOG BATHS") */}
       {showWashModal && activePet && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
           <div className="bg-stone-900 border-4 border-sky-400 rounded-3xl p-6 md:p-8 max-w-2xl w-full text-white shadow-2xl space-y-6 animate-scaleUp">
@@ -592,10 +659,10 @@ export const PetHouse: React.FC<PetHouseProps> = ({
                 <span className="text-4xl">🧼</span>
                 <div>
                   <h3 className="text-2xl font-black text-sky-300">
-                    Mojo Spa: Wash & Clean {activePet.name}!
+                    Mojo Spa: Give {activePet.name} a Warm Bath!
                   </h3>
                   <p className="text-xs text-stone-300">
-                    Lather soap, rinse with warm water, blow dry, and brush his silky fur!
+                    Lather warm bubbly soap, rinse with shower water, fluff dry, and velvet brush!
                   </p>
                 </div>
               </div>

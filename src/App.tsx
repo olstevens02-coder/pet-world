@@ -27,18 +27,27 @@ const defaultFerrari: FerrariCustomization = {
   boostLevel: 1
 };
 
+const starterPuppy: Pet = {
+  ...INITIAL_SHELTER_PETS[0],
+  name: 'Max',
+  isAdopted: true,
+  adoptionDate: new Date().toLocaleDateString(),
+  needs: { hunger: 85, happiness: 100, energy: 90, cleanliness: 65, health: 100 }
+};
+
 const initialGameState: GameState = {
-  coins: 200,
+  coins: 250,
   stars: 5,
-  currentLocation: 'shelter',
-  activePetId: null,
-  shelterPets: INITIAL_SHELTER_PETS,
-  adoptedPets: [],
+  currentLocation: 'house',
+  activePetId: starterPuppy.id,
+  shelterPets: INITIAL_SHELTER_PETS.slice(1),
+  adoptedPets: [starterPuppy],
   ferrari: defaultFerrari,
   inventory: {
-    food_bone: 3,
-    food_salmon: 2,
-    groom_bubble_soap: 2
+    food_bone: 5,
+    food_salmon: 3,
+    food_wagyu_steak: 2,
+    groom_bubble_soap: 3
   },
   placedFurniture: [],
   currentRoom: 'mojo_living_lounge',
@@ -51,7 +60,7 @@ const initialGameState: GameState = {
   highScoreTreatCatcher: 0,
   stats: {
     totalTripsDriven: 0,
-    petsAdopted: 0,
+    petsAdopted: 1,
     treatsFed: 0,
     bathsGiven: 0
   }
