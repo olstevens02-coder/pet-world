@@ -340,53 +340,5 @@ export const INITIAL_SHELTER_PETS: Pet[] = [
     xp: 0,
     accessories: {},
     tricks: ['Hat Pose', 'Loop Hug']
-  },
-  {
-    id: 'shelter_hamster_1',
-    species: 'hamster',
-    name: 'Cheeks',
-    breedVariant: 'Roborovski Dwarf',
-    colorScheme: {
-      primary: '#f59e0b',
-      secondary: '#d97706',
-      accent: '#ffffff',
-      eyeColor: '#0f172a',
-      bellyColor: '#ffffff'
-    },
-    gender: 'boy',
-    personality: 'Speedy Snack Hoarder',
-    favoriteFood: 'Big Sunflower Seed',
-    favoriteActivity: 'Speeding on the spinner wheel',
-    bio: 'Cheeks once fit 12 sunflower seeds into his mouth at once! Loves high-speed adventures.',
-    isAdopted: false,
-    needs: { hunger: 65, happiness: 85, energy: 95, cleanliness: 85, health: 95 },
-    level: 1,
-    xp: 0,
-    accessories: {},
-    tricks: ['Cheek Stuff', 'Speed Wheel']
-  },
-  {
-    id: 'shelter_guinea_pig_1',
-    species: 'guinea_pig',
-    name: 'Waffles',
-    breedVariant: 'Abyssinian Fluff-Potato',
-    colorScheme: {
-      primary: '#b45309',
-      secondary: '#f59e0b',
-      accent: '#ffffff',
-      eyeColor: '#0f172a',
-      bellyColor: '#fef3c7'
-    },
-    gender: 'friend',
-    personality: 'Whistle Singer & Popcorner',
-    favoriteFood: 'Crisp Romaine Lettuce',
-    favoriteActivity: 'Squeaking "Wheek Wheek" during rides',
-    bio: 'Waffles will do popcorn hops whenever you say the word "Lettuce". The ultimate cozy buddy!',
-    isAdopted: false,
-    needs: { hunger: 70, happiness: 90, energy: 80, cleanliness: 85, health: 95 },
-    level: 1,
-    xp: 0,
-    accessories: {},
-    tricks: ['Wheek Chorus', 'Popcorn Jump']
   }
 ];

@@ -83,15 +83,27 @@ export const App: React.FC = () => {
           ? parsed.currentRoom
           : 'mojo_living_lounge';
 
+        const filterOutRemoved = (petList: Pet[]) =>
+          petList.filter(p => p.species !== ('hamster' as any) && p.species !== ('guinea_pig' as any));
+
+        const shelterPets = Array.isArray(parsed.shelterPets) && parsed.shelterPets.length > 0
+          ? filterOutRemoved(parsed.shelterPets)
+          : INITIAL_SHELTER_PETS;
+
+        const adoptedPets = Array.isArray(parsed.adoptedPets)
+          ? filterOutRemoved(parsed.adoptedPets)
+          : [starterPuppy];
+
+        const activePetId = adoptedPets.find(p => p.id === parsed.activePetId)?.id || adoptedPets[0]?.id || starterPuppy.id;
+
         return {
           ...initialGameState,
           ...parsed,
+          activePetId,
           currentRoom,
           unlockedRooms: validRooms,
-          shelterPets: Array.isArray(parsed.shelterPets) && parsed.shelterPets.length > 0
-            ? parsed.shelterPets
-            : INITIAL_SHELTER_PETS,
-          adoptedPets: Array.isArray(parsed.adoptedPets) ? parsed.adoptedPets : []
+          shelterPets,
+          adoptedPets
         };
       }
     } catch (e) {
